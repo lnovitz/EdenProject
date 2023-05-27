@@ -1,0 +1,55 @@
+<div ng-controller="weatherController" style="margin:auto; margin-top:50px; width:310px;">
+    <div class="form-inline">
+      <input type="text" ng-model="zipCode" class="form-control mb-4 mr-2" style="width:120px;"
+        placeholder="ZIP Code" />
+      <button ng-click="getWeather(zipCode)" class="btn btn-warning mb-4">
+        Get Current Weather
+      </button>
+    </div>
+    <div class="weatherContainer">
+      <div class="weatherHeader">
+        <div>
+          <h2 class="title">
+            {{locationName}}
+          </h2>
+          <p class="description">
+            {{condition}}
+          </p>
+        </div>
+        <img ng-src="https://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" src="naicon.png" width="128" height="128"
+          class="icon" />
+      </div>
+      <div class="weatherBody">
+        <div class="temperature">{{currentTemp}} °F</div>
+        <div class="weatherDetails">
+          <table class="t">
+            <tbody>
+              <tr>
+                <th colspan="2">Details</th>
+              </tr>
+              <tr>
+                <td>Min.</td>
+                <td>{{minTemp}} °F</td>
+              </tr>
+              <tr>
+                <td>Max.</td>
+                <td>{{maxTemp}} °F</td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td>{{ windSpeed }} mph</td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+                <td>{{ humidity }}%</td>
+              </tr>
+              <tr>
+                <td>Pressure</td>
+                <td>{{pressure}} hPa</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
