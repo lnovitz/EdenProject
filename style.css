@@ -2,3 +2,15 @@ html {
   height: 100%;
   width: 100%;
 }
+
+label {
+  margin-left: 20px;
+}
+
+#datepicker {
+  width: 180px;
+}
+
+#datepicker>span:hover {
+  cursor: pointer;
+}
