@@ -19,14 +19,14 @@
   <figure class="wp-caption">
     <img class="demo" src="1.png" alt="Image" width="15%" height="50%" />
     <figcaption class="wp-caption-text">
-      <h4>Welcome to Eden https://stackoverflow.com/a/21920241</h4>
+      <h4>Welcome to Eden</h4>
     </figcaption>
 
   </figure>
   <div class="container">
-    <button ng-hide="SharedData.isHomePage" ng-click="go('/')" type="button"
+    <button ng-hide="$root.isHomePage" ng-click="go('/')" type="button"
       class="btn btn-outline-secondary mt-1">Back</button>
-    <button ng-hide="SharedData.isHomePage" ng-click="go('/')" type="button"
+    <button ng-show="$root.isLoggedIn" ng-click="go('/')" type="button"
       class="btn btn-outline-danger float-end mt-1">Logout</button>
   </div>
 
@@ -54,12 +54,6 @@
   <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
   <script>
     var edenProject = angular.module("edenProject", ["ngRoute"]);
-
-    edenProject.factory("SharedData", function () {
-      return {
-        isHomePage: true
-      };
-    });
 
     /* ROUTES */
     edenProject.config(function ($routeProvider) {
@@ -92,9 +86,16 @@
 
     });
 
-    edenProject.controller("mainController", function ($scope, SharedData) {
-      $scope.SharedData = SharedData;
-    });
+    edenProject.controller('mainController', ['$scope', '$rootScope', '$location',
+      function ($scope, $rootScope, $location) {
+        $rootScope.isHomePage = true;
+        $rootScope.isLoggedIn = false;
+
+        $scope.go = function (path) {
+          $location.path(path);
+        };
+      }]);
+
   </script>
   <script src="/controllers/home.js"></script>
   <script src="/controllers/plant.js"></script>

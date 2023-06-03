@@ -1,8 +1,9 @@
-edenProject.controller("edenController", function ($scope, $location, SharedData) {
-  $scope.go = function ( path ) { 
-    $location.path( path ); 
-  };
+edenProject.controller('edenController', ['$scope', '$rootScope', '$location',
+      function ($scope, $rootScope, $location) {
+        $rootScope.isHomePage = false;
+        $rootScope.isLoggedIn = true;
 
-  SharedData['isHomePage'] = false;
-  $scope.SharedData = SharedData;
-});
+        $scope.go = function (path) {
+          $location.path(path);
+        };
+      }]);

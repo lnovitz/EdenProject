@@ -1,4 +1,5 @@
-edenProject.controller("plantController", function($scope, $location, $routeParams, SharedData) {
+edenProject.controller('plantController', ['$scope', '$rootScope', '$location', '$routeParams', 
+  function($scope, $rootScope, $location, $routeParams) {
   if ($routeParams.id) {
     console.log("test");
     // Edit an existing item
@@ -7,6 +8,7 @@ edenProject.controller("plantController", function($scope, $location, $routePara
   $scope.go = function(path) {
     $location.path(path);
   };
+
   $(document).ready(function() {
     $("#datepicker").datepicker({
       autoclose: true,
@@ -22,6 +24,4 @@ edenProject.controller("plantController", function($scope, $location, $routePara
   //   }
   // }
 
-  SharedData['isHomePage'] = false;
-  $scope.SharedData = SharedData;
-});
+}]);
