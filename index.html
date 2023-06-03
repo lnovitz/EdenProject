@@ -30,7 +30,6 @@
       class="btn btn-outline-danger float-end mt-1">Logout</button>
   </div>
 
-
   <div ng-view></div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -68,8 +67,8 @@
           controller: "edenController"
         })
 
-        .when("/eden/plant", {
-          //.when("/eden/plant/:id?", {
+        //.when("/eden/plant", {
+        .when("/eden/plant/:id?", {
           templateUrl: "views/plant.html",
           controller: "plantController"
         })
